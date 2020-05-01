@@ -10,16 +10,16 @@ class CesarCryptography(object):
     def decrypt(self, encrypted_message: str, backward_steps: int = 1) -> str:
         encrypted_message = encrypted_message.lower()
         encrypted_phrases = encrypted_message.split()
-        decoded_words = []
+        decrypted_words = []
         for phrase in encrypted_phrases:
-            decoded_letters = []
+            decrypted_letters = []
             for letter in phrase:
 
                 if letter.isnumeric():
-                    decoded_letters.append(letter)
+                    decrypted_letters.append(letter)
                     continue
                 elif letter in self._punctuation:
-                    decoded_letters.append(letter)
+                    decrypted_letters.append(letter)
                     continue
                 elif letter == ' ':
                     continue
@@ -33,13 +33,13 @@ class CesarCryptography(object):
 
                 letter_decrypted = self._letters[index_decrypt]
 
-                decoded_letters.append(letter_decrypted)
-            word = ''.join(decoded_letters)
-            decoded_words.append(word)
+                decrypted_letters.append(letter_decrypted)
+            word = ''.join(decrypted_letters)
+            decrypted_words.append(word)
 
-        decoded_message = ' '.join(decoded_words)
+        decrypted_message = ' '.join(decrypted_words)
 
-        return decoded_message
+        return decrypted_message
 
     def encrypt(self, message: str, forward_steps: int = 1) -> str:
         message = message.lower()
