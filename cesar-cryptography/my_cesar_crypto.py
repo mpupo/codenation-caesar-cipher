@@ -1,4 +1,4 @@
-"""Implementação do algorítmo de criptografia de César do desafio. """
+"""Implementation of Caesar's encryption algorithm of the challenge."""
 
 
 class CesarCryptography(object):

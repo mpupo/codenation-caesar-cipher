@@ -1,4 +1,4 @@
-"""Implementação do desafio"""
+"""Challenge resolution"""
 
 import json
 import requests
@@ -6,7 +6,7 @@ import hashlib
 from my_cesar_crypto import CesarCryptography
 
 CODENATION_SENDFILE_URL = 'https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?'
-MY_TOKEN = '11ff04314da6eaf77a2f5a853fab2c97a1bd3c9d'
+MY_TOKEN = 'MY_SECRET_TOKEN'
 payload = {'token': MY_TOKEN}
 
 # 1. Retrieving the data:
@@ -31,7 +31,7 @@ challenge_answer['resumo_criptografico'] = decrypted_msg_hash
 with open('answer.json', 'w') as json_file:
     json.dump(challenge_answer, json_file)
 
-# 6. Sending to Codenation:
+# 6. Send to Codenation:
 file = {"answer": open('answer.json', 'rb')}
 send = requests.post(url=CODENATION_SENDFILE_URL, params=payload, files=file)
 
